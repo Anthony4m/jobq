@@ -36,21 +36,15 @@ const SideFilter = () => {
             </div>
 
 
-            <aside className={
-                isOpen ? "absolute inset-0 bg-white p-4 z-10 overflow-y-auto" : "bg-white w-1/4 p-4 max-[500px]:hidden"
-            }>
+            <aside className={isOpen ? "absolute inset-0 bg-white p-4 z-10 overflow-y-auto" : "bg-white w-1/4 p-4 max-[500px]:hidden"}>
                 <div className="flex justify-between items-center  border-b-2 py-3">
                     <h3 className=" text-xl font-medium">Filter</h3>
                     <p className="text-green-500 text-sm">
-                        {  isOpen ? (<button
-                            onClick={handleClose}
-                            className="text-green-500 text-sm"
-                        >
+                        {  isOpen ? (<button onClick={handleClose} className="text-green-500 text-sm">
                             Close
-                        </button>):(<button
-                            onClick={handleClose}
-                            className="text-green-500 text-sm"
-                        >
+                        </button>)
+                            :
+                            (<button onClick={handleClose} className="text-green-500 text-sm">
                             Reset
                         </button>)}
                     </p>
