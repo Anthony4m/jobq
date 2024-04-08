@@ -1,15 +1,15 @@
 import CheckerBox from "./CheckerBox.jsx";
 import {useEffect, useState} from "react";
-import {GiHamburgerMenu} from "react-icons/gi";
 import SalaryRange from "./SalaryRange.jsx";
+import {BsFilter} from "react-icons/bs";
 
 const SideFilter = () => {
-    const [isOpen,setIsopen] = useState(false)
+    const [isOpen,setIsOpen] = useState(false)
     const toggleAside = () => {
-        setIsopen(!isOpen);
+        setIsOpen(!isOpen);
     };
     const handleClose = () => {
-        setIsopen(false);
+        setIsOpen(false);
     };
     useEffect(() => {
         if (isOpen) {
@@ -27,16 +27,16 @@ const SideFilter = () => {
     }, [isOpen]);
     return(
         <>
-            <div className="mb-3 min-[500px]:hidden">
+            <div className="pl-4 mb-3 min-[500px]:hidden">
                 <button onClick={toggleAside}
                         className="flex items-center gap-3 p-3 border-2 rounded-3xl bg-white text-sm  cursor-pointer hover:text-jBlue">
-                    <GiHamburgerMenu className="text-xl "/>
+                    <BsFilter className="text-xl "/>
                     Filters
                 </button>
             </div>
 
 
-            <aside className={isOpen ? "absolute inset-0 bg-white p-4 z-10 overflow-y-auto" : "bg-white w-1/4 p-4 max-[500px]:hidden"}>
+            <aside className={isOpen ? "absolute inset-x-5 h-full bg-white p-4 z-10 overflow-y-auto" : "bg-white w-1/4 p-4 max-[500px]:hidden"}>
                 <div className="flex justify-between items-center  border-b-2 py-3">
                     <h3 className=" text-xl font-medium">Filter</h3>
                     <p className="text-green-500 text-sm">
