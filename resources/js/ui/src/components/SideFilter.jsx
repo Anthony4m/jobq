@@ -36,27 +36,30 @@ const SideFilter = () => {
             </div>
 
 
-            <aside className={isOpen ? "absolute inset-x-5 h-full bg-white p-4 z-10 overflow-y-auto" : "bg-white w-1/4 p-4 max-[500px]:hidden"}>
-                <div className="flex justify-between items-center  border-b-2 py-3">
-                    <h3 className=" text-xl font-medium">Filter</h3>
-                    <p className="text-green-500 text-sm">
-                        {  isOpen ? (<button onClick={handleClose} className="text-green-500 text-sm">
-                            Close
-                        </button>)
-                            :
-                            (<button onClick={handleClose} className="text-green-500 text-sm">
-                            Reset
-                        </button>)}
-                    </p>
+            <aside className={isOpen ? "absolute inset-x-5 h-full bg-white p-4 z-10 overflow-y-auto" : "min-[500px]:block w-1/4 p-4 max-[500px]:hidden"}>
+                <div className="sticky min-[500px]:top-36 flex flex-col gap-2 p-2 border rounded-xl ">
+                    <div className="flex justify-between items-center  border-b-2 py-3">
+                        <h3 className=" text-xl font-medium">Filter</h3>
+                        <p className="text-green-500 text-sm">
+                            {isOpen ? (<button onClick={handleClose} className="text-green-500 text-sm">
+                                    Close
+                                </button>)
+                                :
+                                (<button onClick={handleClose} className="text-green-500 text-sm">
+                                    Reset
+                                </button>)}
+                        </p>
+                    </div>
+                    <div>
+                        <CheckerBox title={"Sort By"} children={["Recently", "A-Z", "Top Salary", "Rating"]}/>
+                        <SalaryRange/>
+                        <CheckerBox title={"Job Type"}
+                                    children={["Full-Time", "Part-Time", "Contractual", "Freelance", "Internship"]}/>
+                        <CheckerBox title={"Work Location"} children={["On-Site", "Remote", "Hybrid"]}/>
+                        <CheckerBox title={"Experience"} children={["Fresher", "Beginner", "Intermediate", "Expert"]}/>
+                    </div>
                 </div>
-                <div>
-                    <CheckerBox title={"Sort By"} children={["Recently", "A-Z", "Top Salary", "Rating"]}/>
-                    <SalaryRange/>
-                    <CheckerBox title={"Job Type"}
-                                children={["Full-Time", "Part-Time", "Contractual", "Freelance", "Internship"]}/>
-                    <CheckerBox title={"Work Location"} children={["On-Site", "Remote", "Hybrid"]}/>
-                    <CheckerBox title={"Experience"} children={["Fresher", "Beginner", "Intermediate", "Expert"]}/>
-                </div>
+
             </aside>
         </>
     )
